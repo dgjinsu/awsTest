@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color:rgb(255,255,128)">
+<div align="center">
+  <h3> 전체 회원 리스트 [관리자용]</h3>
+  <div th:fragment="memberTable">
+    <table width="600" border="1">
+      <tr> <th>id <th>pw <th>name <th>phone <th>잔액 <th>가입일시
+      <tr th:each="m:${list}">
+        <td th:text="${m.id}" style="color:blue; font-weight:bold">id
+        <td th:text="${m.pw}">pw <td th:text="${m.name}">name
+        <td th:text="${m.phone}">phone
+        <td style="color:red; text-align:right" th:text="${m.balance}">balance
+        <td th:text="${m.rdate}">rdate
+    </table>
+  </div>
+  <br> <a href="/menu">메뉴 화면으로</a>
+</div>
+</body>
+</html>

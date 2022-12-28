@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div layout:fragment="content">
+
+    <div th:fragment="qaTable">
+        <style> .gray {color:gray; font-size:0.8em;}</style>
+        <table style="width:900" border="1">
+            <tr style="background-color:navy; color:yellow">
+                <th>no<th>ID<th>질문일시 <th>질문내용<th>답변일시<th>답변내용
+            <tr th:each="q:${list}" >
+                <th th:text="${q.no}" >no
+                <td th:text="${q.id}">id
+                <td th:text="${q.qdate}" class="gray">qdate
+                <td th:text="${q.question}">question
+                <td th:if="${q.adate}==null" th:text="|(soon)|" class="gray">
+                <td th:unless="${q.adate}==null" th:text="${q.adate}" class="gray">
+                <td th:text="${q.answer}" style="color:navy; font-size:0.9em">answer
+        </table> <p>
+    </div>
+
+
+</div>
+</html>

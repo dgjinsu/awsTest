@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+
+<th:block layout:fragment="css">
+    <style>
+     .j {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-bottom: 30px;
+     }
+      h3 {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-bottom: 30px;
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .amargin {
+        margin-right: 50px;
+      }
+    </style>
+</th:block>
+
+<div layout:fragment="content">
+
+    <h2><span th:text="${m.id}" style="color:blue">james</span>님의 정보</h2>
+    <h3>회원 정보 조회 및 변경</h3>
+    <form action="/myinfo/update" method="get">
+        <div class="form-group j">
+            password<input type="text" class="form-control" name="pw" th:value="${m.pw}"/>
+            이름<input type="text" class="form-control" name="name" th:value="${m.name}"/>
+            폰<input type="text" class="form-control" name="phone" th:value="${m.phone}"/>
+            현재 잔액<input type="text" class="form-control" th:value="${won}" disabled/>
+            회원가입일시<input type="text" class="form-control" th:value="${m.rdate}" disabled />
+            게시글 수 <input type="text" class="form-control" th:value="${count}" disabled>
+        </div>
+        <div class="j">
+            <a class="amargin" href="/menu">메뉴로 돌아가기</a>
+            <button type="submit" class="btn btn-secondary">
+                변경된 내용으로 수정
+            </button>
+        </div>
+
+        <input type="hidden" name="h_pw" th:value="${m.pw}">
+        <input type="hidden" name="h_name" th:value="${m.name}">
+        <input type="hidden" name="h_phone" th:value="${m.phone}">
+    </form>
+
+</div>
+
+</html>

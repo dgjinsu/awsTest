@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<th:block layout:fragment="css">
+    <style>
+        body {
+            background-color:yellow;
+        }
+    </style>
+</th:block>
+
+<div layout:fragment="content">
+    <div align="center">
+        <h4>
+            <span style="color:blue" th:text="${id}">id</span>
+            <span th:if="${#lists.size(b)}==0">님은 아직 첫 거래 이전이십니다.</span>
+            <span th:if="${#lists.size(b)}>0">님의 거래 내역 (최근거래순)</span>
+        </h4>
+        <span>총 <span th:text="${#lists.size(b)}"></span>건의 거래가 있습니다</span><br>
+        <span th:text="|현재 잔액: ${balance} 원|" style="background-color:white"></span><p>
+        <table width="500" border="1" th:if="${#lists.size(b)}>0">
+            <tr>
+                <th>거래일시
+                <th>입금액
+                <th>출금액
+                <th>이체여부
+                <th>이체상대
+                </th>
+            <tr th:each="b:${b}">
+                <td th:text="${b.tdate}">tdate </td>
+                <td th:text="${b.de}" style="color:blue; text-align:right">de </td>
+                <td th:text="${b.wi}" style="color:red; text-align:right">wi </td>
+                <td style="text-align:center">
+                    <span th:if="${b.tcode==0}">-</span>
+                    <span th:if="${b.tcode==1}">이체보냄</span>
+                    <span th:if="${b.tcode==2}">이체받음</span>
+                </td>
+                <td th:text="${b.tid}" style="text-align:center">tid </td>
+            </tr>
+        </table><br> <a href="/menu">menu</a>
+    </div>
+</div>
+
+</html>

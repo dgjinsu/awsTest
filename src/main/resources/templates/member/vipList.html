@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div layout:fragment="content">
+
+  <div align="center">
+    <h3> vip 회원 리스트 [vip매니저용] </h3>
+    <div th:replace="~{member/memberList :: memberTable}"></div>
+    <a href="/menu">메뉴 화면으로</a>
+  </div>
+</div>

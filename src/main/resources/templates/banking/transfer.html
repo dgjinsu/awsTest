@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="css">
+    <style>
+        body {
+            background-color:#FBEFFB
+        }
+    </style>
+</th:block>
+
+<div layout:fragment="content">
+    <div align="center">
+        <h2>즉시 이체</h2> <hr>
+        <span style="color:blue" th:text="${id}">id</span>님, 수신인 ID와 이체금액을 입력해 주세요. <br><hr><p>
+        <form method="post" action="/transfer">
+            <table>
+                <tr>
+                    <td>수신인ID
+                    <td><input type="text" name="tid">
+                <tr>
+                    <td>이체금액
+                    <td><input type="number" name="money"> 원
+            </table><p>
+            <input type="submit" value="이체진행">
+        </form><p> <a href = "/menu">menu</a> <p>
+    </div>
+</div>
+
+</html>

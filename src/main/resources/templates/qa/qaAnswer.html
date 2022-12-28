@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<div layout:fragment="content">
+  <body>
+  <h2>게시판 [관리자용]</h2> <hr>
+  <span style="color:blue">관리자</span>님, 답변을 작성해 주세요.<br>
+  <hr><p>
+  <div th:replace="~{qa/qaList :: qaTable}"></div>
+  <form method="post" action="/qa/answer">
+    답변 입력:<br>
+    no: <input type="number" name="no" required> <br>
+    <textarea name="answer" rows="4" cols="50" required></textarea>
+    <input type="submit" value="답변등록">
+  </form><p>
+    <a href="/menu">메뉴로 돌아가기</a>
+  </body>
+</div>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+<!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container px-5">
+    <a class="navbar-brand" href="/menu">LE SSERAFIM BANK</a>
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/logout"
+          >logout</a
+          >
+        </li>
+        <li class="nav-item" th:if="${id}=='admin'">
+          <a class="nav-link active" aria-current="page" href="/member/list"
+          >전체 회원 리스트</a>
+        </li>
+        <li class="nav-item" th:if="${id}=='admin'">
+          <a class="nav-link active" aria-current="page" href="/bank/list"
+          >전체 거래 내역</a>
+        </li>
+        <li class="nav-item" th:if="${id}=='admin'">
+          <a class="nav-link active" aria-current="page" href="/qa/answer"
+          >게시판 답변 등록</a>
+        </li>
+        <li class="nav-item" th:if="${id}=='vadmin'">
+          <a class="nav-link active" aria-current="page" href="/member/viplist"
+          >vip 회원 리스트</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container px-4 px-lg-5">
+  <!-- Heading Row-->
+  <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-7">
+      <img
+              class="img-fluid rounded mb-4 mb-lg-0"
+              src="loginLogo.jpg"
+              alt="르세라핌"
+      />
+    </div>
+    <div class="col-lg-5">
+      <h1 class="font-weight-light"><span th:text="${id}"></span>님, 어떤 업무를 하시겠습니까?</h1>
+      <p>아래에서 선택해주세요</p>
+    </div>
+  </div>
+  <p></p>
+
+  <div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">입금</h2>
+          <p class="card-text">입금 하시려면 아래 버튼을 눌러주세요</p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm" href="/deposit">입금 하기</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">출금</h2>
+          <p class="card-text">출금 하시려면 아래 버튼을 눌러주세요</p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm" href="/withdrawal">출금 하기</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">이체</h2>
+          <p class="card-text">이체 하시려면 아래 버튼을 눌러주세요</p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm" href="/transfer">이체 하기</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">나의 거래 내역</h2>
+          <p class="card-text">
+            나의 거래 내역을 보려면 아래 버튼을 눌러주세요
+          </p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm" href="/myhistory">내역 보기</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">회원정보조회 및 변경</h2>
+          <p class="card-text">
+            회원정보조회 및 변경을 원하시면 아래 버튼을 눌러주세요
+          </p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm" href="/myinfo">변경</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">게시판(Q&A)</h2>
+          <p class="card-text">게시판(Q&A) 로 이동</p>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm" href="/qa/question">Q&A</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul>
+  <li><a href="/deposit">입금</a></li>
+  <li><a href="/withdrawal">출금</a></li>
+  <li><a href="/transfer">이체</a></li>
+  <li><a href="/myhistory">나의 거래 내역</a></li>
+  <li><a href="/myinfo">회원정보조회 및 변경</a></li>
+  <li><a href="/qa/question"> 게시판(Q&A)</a></li>
+  <li><a href="/logout">logout</a></li>
+  <li th:if="${id}=='admin'">
+    <a href="/member/list">전체 회원 리스트 (admin only)</a>
+  </li>
+  <li th:if="${id}=='admin'">
+    <a href="/bank/list">전체 거래 내역 (admin only)</a>
+  </li>
+  <li th:if="${id}=='admin'">
+    <a href="/qa/answer">게시판 답변 등록 (admin only)</a>
+  </li>
+</ul>
+</body>
+</html>

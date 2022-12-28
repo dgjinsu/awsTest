@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body style="background-color: #f8ece0">
+<form method="get" action="/member/insert">
+  <p></p>
+  <fieldset style="background-color: #fbf8ef">
+    <legend><strong>회원 정보를 입력하세요</strong></legend>
+    <br />
+    <table>
+      <tr>
+        <td>ID</td>
+        <td><input type="text" name="id" required /></td>
+      </tr>
+      <tr>
+        <td>PW</td>
+        <td><input type="password" name="pw" required /></td>
+      </tr>
+      <tr>
+        <td>이름</td>
+        <td><input type="text" name="name" required /></td>
+      </tr>
+      <tr>
+        <td>폰</td>
+        <td><input type="text" name="phone" required /></td>
+      </tr>
+    </table>
+
+    <br />
+  </fieldset>
+  <br />
+  <a href="/login">취소(로그인 화면으로)</a>&nbsp;&nbsp;
+  <input type="submit" value="회원등록" />
+</form>
+</body>
+</html>

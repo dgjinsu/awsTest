@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body style="background-color: #f8ece0">
+총 회원: <span th:text="${memberCount}"></span>
+<div style="text-align: center">
+    <h1>LE SSERAFIM</h1>
+    <form method="get" action="/login/check">
+        ID: <input type="text" name="id" />
+        <p>
+            <input type="submit" value="login" /> &nbsp;&nbsp;
+            <a href="/member/register"> 회원가입 </a>
+            <a href="/qa/question">질문답변</a>
+        </p>
+        <p></p>
+    </form>
+    <img
+            src="loginLogo.jpg"
+            width="700"
+            height="394"
+            alt="르세라핌"
+    /><br />
+    <span>르세라핌 로고(출처:위키백과)</span>
+</div>
+</body>
+</html>
