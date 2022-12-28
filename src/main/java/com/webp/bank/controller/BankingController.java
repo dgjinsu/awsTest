@@ -33,7 +33,7 @@ public class BankingController {
         model.addAttribute("balance", balance);
         model.addAttribute("b", list);
 
-        return "/banking/myhistory";
+        return "banking/myhistory";
     }
 
     @GetMapping("/deposit")
@@ -42,14 +42,14 @@ public class BankingController {
         mo.addAttribute("word", "입");
         mo.addAttribute("color","rgb(255, 255, 128)");
         mo.addAttribute("url", "/dewi?choice=1");
-        return "/banking/dewi";
+        return "banking/dewi";
     }
     @GetMapping("/withdrawal") public String withdrawal(HttpSession session, Model mo){
         mo.addAttribute("id", session.getAttribute("id"));
         mo.addAttribute("word", "출");
         mo.addAttribute("color","#E0F8F7");
         mo.addAttribute("url", "/dewi?choice=-1");
-        return "/banking/dewi";
+        return "banking/dewi";
     }
 
     @PostMapping("/dewi")
@@ -64,7 +64,7 @@ public class BankingController {
     @GetMapping("/transfer")
     public String transfer(HttpSession session, Model mo){
         mo.addAttribute("id", session.getAttribute("id"));
-        return "/banking/transfer";
+        return "banking/transfer";
     }
 
     @PostMapping("/transfer")
@@ -93,7 +93,7 @@ public class BankingController {
         mo.addAttribute("count",count); mo.addAttribute("sum",sum);
         mo.addAttribute("list",list);
         mo.addAttribute("id", session.getAttribute("id"));
-        return "/banking/bankList";
+        return "banking/bankList";
     }
     @ResponseBody
     @GetMapping("/aa")
